@@ -1,0 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+.idea/*
+node-micro-service/node_modules
+node-micro-service/node_modules/*
