@@ -1,0 +1,35 @@
+<div class="main-row col-sm-12">
+    <div class="col-sm-8">
+        <h1>Applications List</h1>
+    </div>
+    <div class="col-sm-4 padTop20">
+        <a ui-sref="appBundles.new" class="btn btn-default btn-raised pull-right">Add Application</a>
+    </div>
+</div>
+<div class="alert alert-dismissible hidden" role="alert"></div>
+<div class="col-sm-12">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Enabled</th>
+            <th>Application Name</th>
+            <th>Actions</th>
+        </tr>
+        <tr ng-repeat="(key,value) in appBundles">
+            <td>
+                <input
+                    bs-switch
+                    ng-change="updateAppBundleStatus('{{value._id}}')"
+                    ng-model="value.enabled"
+                    type="checkbox"
+                    switch-active="{{ isActive }}"
+                    switch-size="normal"
+                    ></td>
+            <td>{{value.name}}</td>
+
+            <td><a ui-sref="appBundles.edit({ 'appBundleId': '{{value._id}}' })">Edit</a> / <a
+                    ng-click="deleteAppBundle(value._id)">Delete</a>/ <a ui-sref="appBundleVersion.list({ 'appBundleId': '{{value._id}}' })">Show Versions</a>
+
+            </td>
+        </tr>
+    </table>
+</div>

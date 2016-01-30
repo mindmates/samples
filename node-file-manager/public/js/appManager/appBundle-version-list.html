@@ -1,0 +1,29 @@
+<div class="main-row col-sm-12">
+    <div class="col-sm-8">
+        <h1>Application Versions List</h1>
+    </div>
+    <div class="col-sm-4 padTop20">
+        <a ui-sref="appBundleVersion.new({ 'appBundleId': '{{appBundleId}}' })" class="btn btn-default btn-raised pull-right">Add Application Version</a>
+    </div>
+
+</div>
+
+<div class="col-sm-12">
+    <div class="alert alert-dismissible hidden" role="alert"></div>
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Current Version</th>
+            <th>Application Name</th>
+            <th>Version</th>
+            <th>Actions</th>
+        </tr>
+        <tr ng-repeat="(key,value) in appBundleVersions" >
+            <td><input type="checkbox" ng-model="value.enabled" ng-change="versionChanged('{{value._id}}')"/></td>
+            <td>{{value.name}}</td>
+            <td>{{value.version}}</td>
+            <td><a ui-sref="appBundleVersion.edit({ 'appBundleVersionId': '{{value._id}}' })">Edit</a> / <a ng-click="deleteAppBundleVersion(value._id)">Delete</a></td>
+        </tr>
+    </table>
+
+    <button type="button" class="btn btn-primary btn-raised"  ng-click="setCurrentVersion()">Update Current Version</button>
+</div>

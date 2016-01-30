@@ -1,0 +1,68 @@
+<h2>Add/Update Application Bundle Details</h2>
+<div class="alert alert-dismissible hidden" role="alert"></div>
+<form class="form-horizontal well" id="appBundleDeatils">
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="appBundleName">Application Name</label>
+        <div class="col-sm-9">
+            <input type="text" id="appBundleName" name="appBundleName" ng-model="appBundle.name" class="form-control"
+                   placeholder="Enter a name for the appBundle" required="required">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="description">Application Description</label>
+        <div class="col-sm-9">
+            <input type="text" id="description" name="appBundleName" ng-model="appBundle.description" class="form-control"
+                   placeholder="Enter a description for the appBundle" required="required">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="packageName">Application Package Name</label>
+        <div class="col-sm-9">
+            <input type="text" id="packageName" name="packageName" ng-model="appBundle.packageName"
+                   class="form-control"
+                   placeholder="Enter the package name of the application" required="required">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="groups">Permitted Groups</label>
+        <div class="col-sm-9">
+            <ui-select multiple ng-model="appBundle.groups" id="groups" theme="bootstrap" ng-disabled="disabled" >
+                <ui-select-match placeholder="Select Group...">{{$item.name}}</ui-select-match>
+                <ui-select-choices repeat="group in groups | filter:$select.search">
+                    {{group.name}}
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="groups">Permitted Organizations</label>
+        <div class="col-sm-9">
+            <ui-select multiple ng-model="appBundle.orgs" id="orgs" theme="bootstrap" ng-disabled="disabled" >
+                <ui-select-match placeholder="Select Organization...">{{$item.name}}</ui-select-match>
+                <ui-select-choices repeat="org in orgs | filter:$select.search">
+                    {{org.name}}
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="regions">Permitted Regions</label>
+        <div class="col-sm-9">
+            <ui-select multiple ng-model="appBundle.regions" id="regions" theme="bootstrap" ng-disabled="disabled" >
+                <ui-select-match placeholder="Select Region...">{{$item.name}}</ui-select-match>
+                <ui-select-choices repeat="region in regions | filter:$select.search">
+                    {{region.name}}
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-primary btn-raised" ng-click="saveAppBundle()">Save AppBundle</button>
+        </div>
+    </div>
+</form>

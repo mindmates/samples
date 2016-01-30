@@ -1,0 +1,102 @@
+<h1>Add/Update User Details</h1>
+<div class="alert alert-dismissible hidden" role="alert"></div>
+<form class="form-horizontal well" id="userDetails">
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="userName">User Name</label>
+        <div class="col-sm-9">
+            <input type="text" id="userName" name="userName" ng-model="user.userName" class="form-control"
+                   placeholder="Enter a User name" required="required">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="firstName">First Name</label>
+        <div class="col-sm-9">
+            <input type="text" id="firstName" name="firstName" ng-model="user.firstName" class="form-control"
+                   placeholder="Enter First name" required="required">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="lastName">Last Name</label>
+        <div class="col-sm-9">
+            <input type="text" id="lastName" name="lastName" ng-model="user.lastName" class="form-control"
+                   placeholder="Enter last name" required="required">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="email">Email</label>
+        <div class="col-sm-9">
+            <input type="email" id="email" name="email" ng-model="user.email" class="form-control"
+                   placeholder="Enter User Email" required="required">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="userStatus">Is User Enabled ?</label>
+        <div class="col-sm-9">
+            <input id="userStatus"
+                   bs-switch
+                   ng-model="user.status"
+                   type="checkbox"
+                   switch-size="normal"
+            ></td>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="userRole">User Role</label>
+        <div class="col-sm-9">
+            <ui-select multiple ng-model="user.role" id="userRole" theme="bootstrap" ng-disabled="disabled" >
+                <ui-select-match placeholder="Select Role">{{$item.name}}</ui-select-match>
+                <ui-select-choices repeat="role in roles | filter:$select.search">
+                    {{role.name}}
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="groups">User Groups</label>
+        <div class="col-sm-9">
+            <ui-select multiple  ng-model="user.groups" id="groups" theme="bootstrap" ng-disabled="disabled" >
+                <ui-select-match placeholder="Select Group...">{{$item.name}}</ui-select-match>
+                <ui-select-choices repeat="group in groups | filter:$select.search">
+                    {{group.name}}
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="groups">User Organizations</label>
+        <div class="col-sm-9">
+            <ui-select multiple ng-model="user.orgs" id="orgs" theme="bootstrap" ng-disabled="disabled" >
+                <ui-select-match placeholder="Select Organization...">{{$item.name}}</ui-select-match>
+                <ui-select-choices repeat="org in orgs | filter:$select.search">
+                    {{org.name}}
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="regions">User Regions</label>
+        <div class="col-sm-9">
+            <ui-select multiple ng-model="user.regions" id="regions" theme="bootstrap" ng-disabled="disabled" style="width: 800px;">
+                <ui-select-match placeholder="Select Region...">{{$item.name}}</ui-select-match>
+                <ui-select-choices repeat="region in regions | filter:$select.search">
+                    {{region.name}}
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-primary btn-raised " ng-click="saveUser()">Save User</button>
+        </div>
+    </div>
+</form>

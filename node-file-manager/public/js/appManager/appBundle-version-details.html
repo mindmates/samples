@@ -1,0 +1,40 @@
+<h2>Add/Update Application Bundle Details</h2>
+<div class="alert alert-dismissible hidden" role="alert"></div>
+<form class="form-horizontal well" id="appBundleDeatils">
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="appBundleName">Application Name</label>
+        <div class="col-sm-9">
+            <input type="text" id="appBundleName" name="appBundleName" ng-model="appBundle.name" class="form-control"
+                   placeholder="Enter a name for the appBundle" required="required" readonly>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="description">Application Description</label>
+        <div class="col-sm-9">
+            <input type="text" id="description" name="appBundleName" ng-model="appBundle.description" class="form-control"
+                   placeholder="Enter a description for the appBundle" required="required" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="description">Application Version</label>
+        <div class="col-sm-9">
+            <input type="text" id="version" name="appBundleName" ng-model="appBundle.version" class="form-control"
+                   placeholder="Enter a version number" required="required" >
+        </div>
+    </div>
+
+    <div class="form-group is-empty is-fileinput">
+        <label class="control-label col-sm-3" for="apkFile">Application APK File</label>
+        <div class="col-sm-9">
+            <input type="file" id="apkFile" ngf-select ng-model="appBundle.file" ngf-max-size="20MB"/>
+            <input type="text" readonly="" class="form-control" placeholder="Upload your application APK file..." value="{{appBundle.originalFileName}}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-primary btn-raised" ng-click="saveAppBundle()">Save AppBundle</button>
+        </div>
+    </div>
+</form>

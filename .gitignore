@@ -3,3 +3,7 @@
 .idea/*
 node-micro-service/node_modules
 node-micro-service/node_modules/*
+
+node-file-manager/node_modules
+node-file-manager/node_modules/*
+node-file-manager/public/bower_components
